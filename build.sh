@@ -6,7 +6,9 @@ name=ifm
 version=5.4.1
 release=0.1
 
-BuildRequires yacc flex
+BuildRequires bison
+BuildRequires flex
+BuildRequires help2man
 
 set -x
 _sourcedir=$(dirname $(readlink -e $0))
@@ -22,7 +24,6 @@ __setup_n=${name}-${version}
     cd ${__setup_n}
     git clean -xdf
 }
-rm -v man/ifm.1
 
 
 #build
