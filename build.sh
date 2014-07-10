@@ -11,17 +11,18 @@ release=0.1
 set -x
 _sourcedir=$(dirname $(readlink -e $0))
 _builddir=$(dirname $(readlink -e $0))
-buildroot=${_builddir}/BUILDROOT
+buildroot=${_builddir}/BUILDROOT/
 __setup_n=${name}-${version}
 
 #prep
 {
-    __setup_n=meld
+    __setup_n=ifm-html
     rm -rf ${buildroot}
     cd ${_builddir}
     cd ${__setup_n}
     git clean -xdf
 }
+rm -v man/ifm.1
 
 
 #build
@@ -29,14 +30,17 @@ __setup_n=${name}-${version}
     cd ${_builddir}
     cd ${__setup_n}
 }
-
+NPROC=$(nproc)
+./configure --prefix=/opt/${name}-${version}
+make -j$NPROC
 
 #install
 {
     cd ${_builddir}
     cd ${__setup_n}
 }
-make DESTDIR=${buildroot} prefix=/opt/${name}-${version} install
+make DESTDIR=${buildroot} install
+install ifm2html.pl ${buildroot}opt/${name}-${version}
 
 mkdir -p ${buildroot}/etc/profile.d
 cat <<EOF>${buildroot}/etc/profile.d/${name}-${version}.sh

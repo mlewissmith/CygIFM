@@ -1,0 +1,3 @@
+[submodule "ifm-html"]
+	path = ifm-html
+	url = git://github.com/mlewissmith/ifm-html.git
