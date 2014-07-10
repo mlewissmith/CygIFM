@@ -6,7 +6,7 @@ name=ifm
 version=5.4.1
 release=0.1
 
-# BuildRequires
+BuildRequires yacc flex
 
 set -x
 _sourcedir=$(dirname $(readlink -e $0))
