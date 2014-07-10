@@ -3,7 +3,7 @@ set -e
 source _build_sh.rc
 
 name=ifm
-version=5.4.1
+version=5.4.2
 release=0.1
 
 BuildRequires bison
