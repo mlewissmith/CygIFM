@@ -1,0 +1,3 @@
+[filter "date"]
+	smudge = perl .gitkeyword.date.pl smudge
+	clean = perl .gitkeyword.date.pl clean

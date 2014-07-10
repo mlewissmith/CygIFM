@@ -17,3 +17,11 @@ BuildRequires () {
 Requires () {
     echo "[WARNING] Requires: $@ (not implemented)"
 }
+
+_gitdate() {
+    local d
+    d='$Date$'
+    d=${d##\$Date: }
+    d=${d%%\$}
+    echo $d
+}
