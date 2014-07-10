@@ -4,7 +4,7 @@ source _build_sh.rc
 
 name=ifm
 version=5.4.2
-release=0.1
+release=20140710
 
 BuildRequires bison
 BuildRequires flex
@@ -41,7 +41,7 @@ make -j$NPROC
     cd ${__setup_n}
 }
 make DESTDIR=${buildroot} install
-install ifm2html.pl ${buildroot}opt/${name}-${version}
+install ifm2html.pl ${buildroot}opt/${name}-${version}/bin
 
 mkdir -p ${buildroot}/etc/profile.d
 cat <<EOF>${buildroot}/etc/profile.d/${name}-${version}.sh
